@@ -19,7 +19,7 @@ miniconda:
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             bash Miniconda3-latest-Linux-x86_64.sh
 
-## Run Deepflow
+## Deepflow commands
 
             deepflow -h
 
@@ -27,13 +27,31 @@ To create a new project, use the following command:
 
             deepflow new path/to/project path/to/xyz_or_pdb_file
 
-After creating a project the settings should be adjusted in 
+After creating a project the general settings should be adjusted in:
 
-            project_path/input_files/update_input.json
+            project_path/input_files/update_input.json:
 
-A project can be run either with
+To adjust the settings for each step the input files for each step can be adjusted in the 
+
+            project_path/input_files directorys.
+          
+After adjusting the settings a project can be run either with
 
             deepflow run path/to/project
+
+The 'run' commands executes the following functions in a workflow routine. 
+
+            Cp2kEquilibration.setup()
+            Cp2kEquilibration.run()
+            Cp2kProduction.setup()
+            Cp2kProduction.run()
+            DpGenDataConversion.setup()
+            DpGenDataConversion.run()
+            DeepMDTrainModel.setup()
+            DeepMDTrainModel.setup()
+            DpGenActiveLearning.setup()
+            
+            
 
 Or the project can be loaded into a Python environment.
 
