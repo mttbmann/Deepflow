@@ -30,7 +30,7 @@ miniconda:
 
 ## Deepflow commands
 
-Before usage make you export the path of the installation directory:
+Before usage make you sure to export the path of the installation directory:
 
             export PATH="$HOME/.local/bin:$PATH"
 
