@@ -4,13 +4,15 @@ Deepflow is a workflow package designed to automate the generation of ab initio 
 
 ![](workflow.png)
 
-## Requirements:
+## Installation
+
+### Requirements:
 
 CP2k:       included in the module system of the RWTH Cluster
 
 plumed:     included in the CP2k installation
 
-DeepMD:     
+DeepMD with lammps:     
             
             https://github.com/deepmodeling/deepmd-kit/releases
 
@@ -19,7 +21,20 @@ miniconda:
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             bash Miniconda3-latest-Linux-x86_64.sh
 
+### Install
+
+            git clone https://github.com/mttbmann/Deepflow.git
+            cd Deepflow
+            ml Python
+            pip install .
+
 ## Deepflow commands
+
+Before usage make you export the path of the installation directory:
+
+            export PATH="$HOME/.local/bin:$PATH"
+
+Execute the program with:
 
             deepflow -h
 
@@ -35,7 +50,7 @@ To adjust the settings for each workflow step the input files adjusted:
 
             project_path/input_files/workflow_step
           
-After adjusting the settings a project can be run either with
+After adjusting the settings a project can be run with:
 
             deepflow run path/to/project
 
