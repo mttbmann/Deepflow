@@ -1,0 +1,37 @@
+{
+"general_settings":{
+    "project_gpu": "rwth1622",
+    "project_cpu": "simcat",
+    "lattice_constants":[40.000,7.907,5.023],
+    "lattice_angles":[90.0,90.0,90.0],
+    "plumed_dat_path": "input_files/cp2k_production/plumed.dat",
+    "miniconda_path" : "$HOME/miniconda3"
+},
+
+"cp2k_settings": {
+    "equilibration_steps": 100,
+    "production_steps": 200,
+    "cpu_cores": 24,
+    "temperature": 310
+},
+
+"dpdata_conversion_settings": {
+    "dpdata_path": "~/.local/lib/python3.10/site-packages/dpdata"
+},
+
+"deepmd_settings":{
+    "deepmd_conda_path":"~/deepmd_gpu/installation/",
+    "steps_init": 2000,
+    "steps_reuse": 1000
+},
+"active_learning_settings":{
+        "r_cut":5.0,
+        "remote_profile": {
+          "hostname": "login23-x-2.hpc.itc.rwth-aachen.de",
+          "username": "la047615",
+          "password": "xxx",
+          "key_filename": "/home/la047615/.ssh/id_ed25519",
+          "passphrase": "xxx"
+          }
+          }
+}
