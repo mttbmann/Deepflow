@@ -27,42 +27,42 @@ Or the project can be loaded into a Python environment.
 
 Available Commands After Loading a Project:
 
-equil           : Cp2kEquilibration
+            equil           : Cp2kEquilibration
                     - setup()   : Set up the equilibration step
                     - run()     : Execute the equilibration step
                     - clear()   : Clear the equilibration step data
 
-prod            : Cp2kProduction
+            prod            : Cp2kProduction
                     - setup()   : Set up the production MD step
                     - run()     : Execute the production MD step
                     - clear()   : Clear the production MD step data
 
-dataconv        : DpGenDataConversion
+            dataconv        : DpGenDataConversion
                     - setup()   : Set up the data conversion step
                     - run()     : Execute the data conversion step
                     - clear()   : Clear the data conversion step data
 
-activelearning  : DpGenActiveLearning
+            activelearning  : DpGenActiveLearning
                     - setup()   : Set up the active learning step
                     - run()     : Execute the active learning step
                     - clear()   : Clear the active learning step data
 
-lammps          : LammpsTestRun
+            lammps          : LammpsTestRun
                     - setup()   : Set up the LAMMPS test run step with the deep potential of the latest active learning iteration.
                     - run()     : Execute the LAMMPS test run step
                     - clear()   : Clear the LAMMPS test run step data
 
-rateconstants   : LammpsCalculateRateConstants
+            rateconstants   : LammpsCalculateRateConstants
                     - setup()   : Set up the rate constants calculation step
                     - run()     : Execute the rate constants calculation step
                     - clear()   : Clear the rate constants calculation step data
 
-train           : DeepMDTrainModel
+            train           : DeepMDTrainModel
                     - setup()   : Set up the DeepMD training step
                     - run()     : Execute the DeepMD training step
                     - clear()   : Clear the DeepMD training step data
 
-util            : UtilizationTools
+            util            : UtilizationTools
                     - avg_bond_length() : Calculate the average bond length
                     - plot()            : Plot COLVAR file, max_devi_force and average_bond_length of each active learning iteration.
 
