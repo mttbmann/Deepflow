@@ -1,15 +1,19 @@
-Deepflow
+## Deepflow
 
 Deepflow is a workflow package designed to automate the generation of ab initio molecular dynamics data using CP2K, along with training deep potentials using the DPGen active learning procedure. Additionally, it supports utilizing LAMMPS for potential energy surface acquisition and rate constant calculations.
 
-Requirements:
+# Requirements:
 
 CP2k:       included in the module system of the RWTH Cluster
 plumed:     included in the CP2k installation
 
-DeepMD:     https://github.com/deepmodeling/deepmd-kit/releases
+DeepMD:     
+            
+            https://github.com/deepmodeling/deepmd-kit/releases
 
-miniconda:  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+miniconda:  
+            
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             bash Miniconda3-latest-Linux-x86_64.sh
 
 To create a new project, use the following command:
