@@ -12,7 +12,7 @@ CP2k:       included in the module system of the RWTH Cluster
 
 plumed:     included in the CP2k installation
 
-DeepMD with lammps:     
+DeepMD with lammps conda version:     
             
             https://github.com/deepmodeling/deepmd-kit/releases
 
@@ -68,11 +68,11 @@ The 'run' commands executes the following functions in a workflow routine.
             
             
 
-Or the project can be loaded into a Python environment.
+To have better control over each workflow step the project can be loaded into a Python environment.
 
             deepflow load path/to/project
 
-Available Commands After Loading a Project:
+The following commands are available after loading a project:
 
             equil           : Cp2kEquilibration
                     - setup()   : Set up the equilibration step
