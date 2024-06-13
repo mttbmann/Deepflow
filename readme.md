@@ -31,9 +31,9 @@ After creating a project the general settings should be adjusted in:
 
             project_path/input_files/update_input.json:
 
-To adjust the settings for each step the input files for each step can be adjusted in the 
+To adjust the settings for each workflow step the input files adjusted: 
 
-            project_path/input_files directorys.
+            project_path/input_files/workflow_step
           
 After adjusting the settings a project can be run either with
 
