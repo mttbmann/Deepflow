@@ -1,0 +1,78 @@
+{
+    "model": {
+        "descriptor": {
+            "type": "se_atten",
+            "rcut_smth": 4.5,
+            "rcut": R_CUT_PLACEHOLDER,
+            "sel": [
+                37,
+                7,
+                13,
+                28,
+                4,
+                12
+            ],
+            "neuron": [
+                32,
+                64,
+                128
+            ],
+            "axis_neuron": 16,
+            "resnet_dt": false,
+            "attn": 128,
+            "attn_layer": 2,
+            "attn_mask": false,
+            "attn_dotr": true,
+            "seed": 4155225940,
+            "stripped_type_embedding": true,
+            "smooth_type_embdding": true,
+            "set_davg_zero": false
+        },
+        "fitting_net": {
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 2207751508
+        },
+        "type_map": [
+            "C",
+            "S",
+            "O",
+            "H",
+            "F",
+            "N"
+        ]
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.0001,
+        "decay_steps": 5000,
+        "stop_lr": 3.51e-08
+    },
+    "loss": {
+        "type": "ener",
+        "start_pref_e": 0.1,
+        "limit_pref_e": 1,
+        "start_pref_f": 100,
+        "limit_pref_f": 1,
+        "start_pref_v": 0,
+        "limit_pref_v": 0
+    },
+    "training": {
+        "numb_steps": STEPS_INIT_PLACEHOLDER,
+        "disp_file": "lcurve.out",
+        "disp_freq": 100,
+        "save_freq": 50000,
+        "save_ckpt": "model.ckpt",
+        "seed": 115407712,
+        "training_data": {
+            "systems": [
+                "/rwthfs/rz/cluster/work/la047615/master/deepmd_workflow/abcdef/dpgen_data_conversion/training_data"
+            ],
+            "batch_size": "auto"
+        }
+    }
+}

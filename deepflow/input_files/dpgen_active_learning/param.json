@@ -1,0 +1,210 @@
+{
+    "type_map": [
+    ],
+    "mass_map": [
+    ],
+    "init_data_prefix": "path/to/data",
+    "init_data_sys": [
+        "training_data"
+    ],
+    "sys_configs": [
+        [
+            ""
+        ]
+    ],
+    "sys_batch_size": [
+        1
+    ],
+    "sys_format": "lammps/lmp",
+    "numb_models": 4,
+    "training_iter0_model_path": [
+        "path/to/model/0",
+        "path/to/model/1",
+        "path/to/model/2",
+        "path/to/model/3"
+    ],
+    "training_init_model": true,
+    "training_reuse_iter": 1,
+    "training_reuse_numb_steps": STEPS_REUSE_PLACEHOLDER,
+    "training_reuse_old_ratio": "auto",
+    "training_reuse_start_lr": 0.0001,
+    "training_reuse_start_pref_e": 0.1,
+    "training_reuse_start_pref_f": 100,
+    "default_training_param": {
+        "model": {
+            "descriptor": {
+                "type": "se_atten",
+                "rcut_smth": 4.5,
+                "rcut": R_CUT_PLACEHOLDER,
+                "sel": "auto",
+                "neuron": [
+                    32,
+                    64,
+                    128
+                ],
+                "axis_neuron": 16,
+                "resnet_dt": false,
+                "attn": 128,
+                "attn_layer": 2,
+                "attn_mask": false,
+                "attn_dotr": true,
+                "seed": 1,
+                "stripped_type_embedding": true,
+                "smooth_type_embdding": true,
+                "set_davg_zero": false
+            },
+            "fitting_net": {
+                "neuron": [
+                    240,
+                    240,
+                    240
+                ],
+                "resnet_dt": true
+            }
+        },
+        "learning_rate": {
+            "type": "exp",
+            "start_lr": 0.001,
+            "decay_steps": 5000,
+            "stop_lr": 3.51e-08
+        },
+        "loss": {
+            "type": "ener",
+            "start_pref_e": 0.02,
+            "limit_pref_e": 1,
+            "start_pref_f": 1000,
+            "limit_pref_f": 1,
+            "start_pref_v": 0,
+            "limit_pref_v": 0
+        },
+        "training": {
+            "numb_steps": STEPS_INIT_PLACEHOLDER,
+            "disp_file": "lcurve.out",
+            "disp_freq": 100,
+            "save_freq": 50000,
+            "save_ckpt": "model.ckpt"
+        }
+    },
+    "model_devi_dt": 0.0005,
+    "model_devi_skip": 0,
+    "model_devi_f_trust_lo": 0.25,
+    "model_devi_f_trust_hi": 0.5,
+    "model_devi_e_trust_lo": 10000000000,
+    "model_devi_e_trust_hi": 10000000000,
+    "model_devi_clean_traj": false,
+    "model_devi_merge_traj": true,
+    "model_devi_plumed": true,
+    "model_devi_jobs": [
+        {   "sys_idx": [0],
+            "trj_freq": 10,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [5000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [1]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 10,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [10000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [1]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 10,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [20000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [1]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 10,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [40000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [1]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 100,
+            "skip_train": true,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [100000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [10]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 100,
+            "skip_train": true,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [100000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [10]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 100,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [100000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [10]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 200,
+            "skip_train": true,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [200000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [20]} }},
+        {   "sys_idx": [0],
+            "trj_freq": 200,
+            "skip_train": true,
+            "template":{ "lmp": "input.lammps", "plm": "plumed.dat"},
+            "rev_mat":{ "lmp": {"V_NSTEPS": [200000], "V_TEMP": [310]}, "plm": {"V_TEMP":  [310], "V_STRIDE": [20]} }}
+    ],
+    "fp_style": "cp2k",
+    "shuffle_poscar": false,
+    "fp_task_max": 200,
+    "fp_task_min": 30,
+    "user_fp_params": {
+        "GLOBAL": {
+            "PROJECT": "DPGEN",
+            "RUN_TYPE": "ENERGY_FORCE"
+        },
+        "FORCE_EVAL": {
+            "METHOD": "Quickstep",
+            "STRESS_TENSOR": "ANALYTICAL",
+            "DFT": {
+                "BASIS_SET_FILE_NAME": "BASIS_MOLOPT",
+                "POTENTIAL_FILE_NAME": "POTENTIAL",
+                "MGRID": {
+                    "CUTOFF": 280,
+                    "REL_CUTOFF": 40,
+                    "NGRIDS": 5
+                },
+                "QS": {
+                    "EPS_DEFAULT": "1.0E-12"
+                },
+                "SCF": {
+                    "SCF_GUESS": "ATOMIC",
+                    "EPS_SCF": "1.0E-6",
+                    "MAX_SCF": 50,
+                    "OT": {
+                        "MINIMIZER": "DIIS"
+                    },
+                    "OUTER_SCF": {
+                        "TYPE": "NONE",
+                        "OPTIMIZER": "NONE",
+                        "EPS_SCF": "1.0E-6",
+                        "MAX_SCF": "25"
+                    }
+                },
+                "XC": {
+                    "XC_FUNCTIONAL": {
+                        "_": "PBE"
+                    },
+                    "VDW_POTENTIAL": {
+                        "DISPERSION_FUNCTIONAL": "PAIR_POTENTIAL",
+                        "PAIR_POTENTIAL": {
+                            "TYPE": "DFTD2",
+                            "REFERENCE_FUNCTIONAL": "PBE"
+                        }
+                    }
+                }
+            },
+            "SUBSYS": {
+                "CELL": {
+                    "ABC": "LATTICE_CONSTANTS_PLACEHOLDER",
+                    "ALPHA_BETA_GAMMA": "LATTICE_ANGLES_PLACEHOLDER"
+                },
+                "KIND": {
+                    "_": [
+                    ],
+                    "BASIS_SET": [
+                    ],
+                    "POTENTIAL": [
+                    ]
+                }
+            },
+            "PRINT": {
+                "FORCES": {
+                    "_": "ON"
+                }
+            }
+        }
+    }
+}

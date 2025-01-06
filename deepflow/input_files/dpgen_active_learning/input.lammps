@@ -1,0 +1,44 @@
+variable        NSTEPS          equal V_NSTEPS
+variable        THERMO_FREQ     equal 100
+variable        DUMP_FREQ       equal 100
+variable        TEMP            equal V_TEMP
+variable	SEED1           equal 41939 
+variable	SEED2           equal 21934 
+variable        TAU_T           equal 0.04
+
+units           metal
+boundary        p p p
+
+atom_style      atomic
+neigh_modify    delay 10 every 1
+
+read_data       conf.lmp
+ATOMIC_MASSES_PLACEHOLDER
+
+pair_style      deepmd
+pair_coeff      * *
+
+# TIMESTEP
+timestep	0.0005  #ps 
+
+thermo          ${THERMO_FREQ}
+thermo_style    custom step temp pe ke etotal press vol lx ly lz xy xz yz
+thermo_modify 	flush yes
+# DUMP
+dump            dpgen_dump 
+
+# equil - NVT
+velocity        all create ${TEMP} ${SEED2} dist gaussian
+fix		dpgen_plm
+fix             1 all nvt temp ${TEMP} ${TEMP} 0.04
+#fix             2 all temp/csvr ${TEMP} ${TEMP} ${TAU_T} ${SEED1}
+run             ${NSTEPS}
+
+
+ 
+
+
+
+
+
+

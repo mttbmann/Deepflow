@@ -1,0 +1,23 @@
+ml Python
+
+# Add user's local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('MINICONDA_PATH_PLACEHOLDER_1/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "MINICONDA_PATH_PLACEHOLDER_2/etc/profile.d/conda.sh" ]; then
+        . "MINICONDA_PATH_PLACEHOLDER_3/etc/profile.d/conda.sh"
+    else
+        export PATH="MINICONDA_PATH_PLACEHOLDER_4/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+# Activate the conda environment
+conda activate "DEEP_MD_CONDA_PATH_PLACEHOLDER"
+
+
