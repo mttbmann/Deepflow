@@ -8,9 +8,9 @@ Deepflow is a workflow package designed to automate the generation of ab initio 
 
 ### Requirements:
 
-CP2k:       included in the module system of the RWTH Cluster
+CP2k
 
-plumed:     included in the CP2k installation
+plumed
 
 DeepMD with lammps conda version:     
             
